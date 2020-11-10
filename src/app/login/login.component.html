@@ -1,0 +1,24 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img class="mt-3 mb-3" src="assets/img/logo_byn.png" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form #f="ngForm" name="f" (ngSubmit)="f.form.valid && onLoginSubmit()">
+            <input [(ngModel)]="userModel.user" #username type="text" id="login" class="fadeIn second" name="username"
+                placeholder="username" required>
+            <input required [(ngModel)]="userModel.password" #password type="password" id="password"
+                class="fadeIn third" name="password" placeholder="password">
+            <div *ngIf="handleError" class="mat-error mt-1"> {{error}}</div>
+            <button [disabled]="!f.form.valid" mat-raised-button class="fadeIn fourth mt-3 mb-3 button-login"
+                type="submit">LOG IN</button>
+
+        </form>
+
+
+    </div>
+</div>

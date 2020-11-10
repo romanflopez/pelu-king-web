@@ -1,0 +1,24 @@
+<div class="container">
+    <app-back></app-back>
+    <form #f="ngForm" name="f" (ngSubmit)="f.form.valid && saveExpense()">
+        <div class="d-flex mt-4">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Nombre Gasto</mat-label>
+                    <input name="name" [(ngModel)]="model.name" #name="ngModel" required autocomplete="name" type="text"
+                        required matInput placeholder="Nombre">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Precio Gasto</mat-label>
+                    <input name="price" [(ngModel)]="model.price" #price="ngModel" required autocomplete="price"
+                        type="number" required matInput placeholder="Precio">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <button type="submit" mat-raised-button [disabled]="!f.form.valid">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>

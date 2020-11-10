@@ -1,0 +1,23 @@
+<ng-container *ngIf="isLogged">
+    <i id="sidebarArrow" class="menu material-icons pointer" (click)="!sidenav.toggle()">menu</i>
+</ng-container>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav id="sidebar" class="no-print" [hidden]="!isLogged" [opened]="!mobileQuery.matches" #sidenav
+        [mode]="mobileQuery.matches ? 'over' : 'side'">
+        <mat-nav-list>
+            <ng-container *ngFor="let n of fillerNav">
+                <div>
+                    <a class="d-flex align-items-center" mat-list-item #rla="routerLinkActive"
+                        (click)="mobileQuery.matches ? !sidenav.toggle() : ''" [routerLinkActive]="['active', '']"
+                        [routerLink]="n.link">
+                        <span class="">{{n.name}}</span>
+                    </a>
+                </div>
+            </ng-container>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content [ngClass]="{'logged': isLogged}">
+    </mat-sidenav-content>
+</mat-sidenav-container>

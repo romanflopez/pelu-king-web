@@ -1,0 +1,30 @@
+<div class=" h-100">
+    <div class="bg">
+        <div class="d-flex">
+            <div class="col-lg-9">
+                <div class="title">Eliminar</div>
+            </div>
+            <div class="col-lg-3 text-right">
+                <button mat-button [mat-dialog-close]="false">
+                    <span class="material-icons pointer">
+                        close
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="p-24 ">
+        <div class="text-center"><img class="icon-size" src="assets/img/icons/warning.png" alt=""></div>
+        <div class="text-center">
+            <span class="font-bold"> estas seguro que deseas eliminar {{data.name}}</span>
+        </div>
+        <div class="d-flex h-100 mt-5">
+            <div class="col-lg-6 p-0 text-center">
+                <button mat-button class="button secondary" [mat-dialog-close]="false">Cancelar</button>
+            </div>
+            <div class="col-lg-6 border-left p-0 text-center">
+                <button class="disabled-button" mat-button [mat-dialog-close]="true">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>

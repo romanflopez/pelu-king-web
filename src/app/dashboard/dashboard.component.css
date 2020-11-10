@@ -1,0 +1,22 @@
+.icon-size{
+    width: 50px;
+    margin-bottom: 16px;
+}
+.card {
+    width: 70%;
+    margin: auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 16px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+}
+.card-title{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+.card-count{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: #b2bec3;
+}

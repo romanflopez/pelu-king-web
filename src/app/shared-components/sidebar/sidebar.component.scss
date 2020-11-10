@@ -1,0 +1,107 @@
+
+
+.pointer {
+    cursor: pointer;
+}
+.mat-drawer-container {
+  min-height: calc(100vh - 64px);
+  mat-sidenav-content {
+    min-height: calc(100vh - 64px);
+  }
+
+  mat-sidenav {
+    position: fixed;
+    height: calc(100vh - 64px);
+    bottom: 0;
+    top: 64px;
+    width: 120px;
+    border-right: 0;
+
+    .active {
+      background-color: #636e72;
+      color: white;
+
+    }
+
+    a {
+      transition: all 0.3s ease;
+
+      .icon {
+        position: relative;
+        width: 24px;
+        height: 24px;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          &.normal {
+            display: initial;
+          }
+
+          &.hovers {
+            display: none;
+          }
+        }
+
+      }
+
+      span {
+        line-height: normal;
+        text-transform: capitalize;
+      }
+
+      &:hover {
+
+        img {
+
+          &.normal {
+            display: none !important;
+          }
+
+          &.hovers {
+            display: initial !important;
+          }
+        }
+
+       
+      }
+    }
+
+    .title {
+      line-height: 1.54;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 3;
+}
+
+:host ::ng-deep {
+  @media screen and (min-width: 767px) {
+    mat-sidenav-container {
+      mat-sidenav-content {
+        margin-left: 0;
+
+        &.logged {
+          margin-left: 255px;
+        }
+      }
+    }
+  }
+
+  
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+}

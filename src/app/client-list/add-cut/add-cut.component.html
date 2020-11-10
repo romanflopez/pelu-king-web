@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="d-flex mb-3">
+        <h2>Agregar Corte</h2>
+    </div>
+    <form class="d-flex" #f="ngForm" name="f">
+        <div class="col-lg-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Servicios</mat-label>
+                <mat-select name="service" required (ngModelChange)="calculateTotalService()"
+                    [(ngModel)]="model.services" multiple>
+                    <mat-option *ngFor="let service of serviceList" [value]="service">{{service.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Productos</mat-label>
+                <mat-select name="products" (ngModelChange)="calculateTotalProducts()" [(ngModel)]="model.products"
+                    multiple>
+                    <mat-option *ngFor="let product of productList" [value]="product">{{product.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Barberos</mat-label>
+                <mat-select name="barber" required [(ngModel)]="model.barberId">
+                    <mat-option *ngFor="let barber of barberList" [value]="barber._id">{{barber.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+            <mat-form-field appearance="fill">
+                <mat-label>Sucursales</mat-label>
+                <mat-select name="officeId" required [(ngModel)]="model.officeId">
+                    <mat-option *ngFor="let office of officeList" [value]="office._id">{{office.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <br>
+
+
+
+    </form>
+    <div class="d-flex mt-3">
+        <div class="col-lg-12">
+            <app-cut-summary [productList]="model.products" [serviceList]="model.services" [total]="calculateTotal()">
+            </app-cut-summary>
+        </div>
+    </div>
+    <button type="button" [disabled]="!f.form.valid" (click)="saveCut()" mat-raised-button>GUARDAR CORTE</button>
+
+</div>

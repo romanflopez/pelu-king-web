@@ -1,0 +1,85 @@
+
+.list{
+   font-family: 'Open Sans', sans-serif;
+   height: 56px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  padding : 0px 16px;
+
+  }
+  h1,h2,h3,h4,span,p{
+   font-family: 'Open Sans', sans-serif;
+  }
+  .mat-h4, .mat-subheading-1, .mat-typography h4, h3,h2,h1{
+     margin: 0 !important;
+  }
+
+  .title-sections{
+   color: #636e72;
+   font-weight: 600;
+}
+.pointer{
+   cursor: pointer;
+}
+.close {
+  border: 0;
+  background-color: transparent;
+}
+.mat-button-disabled {
+ border-color: rgba(0, 0, 0, 0.26);
+}
+.mat-stroked-button:not([class*=mat-elevation-z]), .mat-flat-button:not([class*=mat-elevation-z]){
+   border-radius: 16px;
+   border-color: #f1c40f;
+   text-transform: uppercase;
+}
+
+.delete-client-snackbar{
+   background: #27ae60 !important;
+   color: white !important;
+   text-transform: uppercase !important;
+}
+.error-client-snackbar{
+   background: #c0392b !important;
+   color: white !important;
+   text-transform: uppercase !important;
+}
+.add-client-snackbar{
+   background: #2ecc71 !important;
+   color: white !important;
+   text-transform: uppercase !important;
+}
+
+.btn-add{
+   background: #f1c40f !important;
+   color: white !important;
+   text-transform: uppercase !important;
+   border-radius: 16px !important;   
+}
+.mat-dialog-container{
+padding: 0px !important;
+background: #ecf0f1 !important;
+}
+
+
+.font-bold{
+   font-weight: 600;
+}
+button{
+   outline: none;
+}
+mat-paginator{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+}
+.uppercase{
+   text-transform: uppercase;
+}
+.bold{
+   font-weight: bold;
+}

@@ -1,0 +1,23 @@
+<mat-toolbar *ngIf="isAuth">
+    <div class="d-flex mt-1 mb-1 w-100">
+        <div class="col-lg-10">
+            <img [routerLink]="[ '/dashboard' ]" class="pointer size" src="assets/img/logo_byn.png" alt="">
+        </div>
+        <div class="col-lg-2">
+            <div class="d-flex align-end">
+                <div class="d-flex w-100 float-right flex-column">
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <div class="d-flex justify-content-end">
+                            <div class="circle">{{username.substring(1,0)}}</div>
+                            <div class="align-username ml-2">{{username}}</div>
+                        </div>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button (click)="logOut()" mat-menu-item>Log Out</button>
+
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>

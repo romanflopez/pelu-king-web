@@ -1,0 +1,26 @@
+.bg{
+    background-color: #ffffff;
+    height: 67px;
+    padding: 24px;
+}
+.title{
+    font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #e31e2a;
+}
+.disabled-button{
+    border-radius: 22.5px;
+    background-color: #e31e2a;
+    color: white;
+    text-transform: uppercase;
+}
+.p-24{
+    padding: 0px 24px;
+ }
+.icon-size{
+    width: 128px;
+}

@@ -1,0 +1,22 @@
+.circle {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    background: #000;
+    font-size:18px;
+    text-transform: uppercase;
+  }
+  .align-username{
+    display: flex;
+    align-items: center;
+  }
+  .align-end{
+    justify-content: flex-end;
+  }
+  .size{
+    width: 100px;
+  }
