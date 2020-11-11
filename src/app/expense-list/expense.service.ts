@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Expense } from './expense-upsert/expense-upsert.component';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class ExpenseService {
       }))
   }
 
-  saveExpense(model: any): Observable<any> {
+  saveExpense(model: Expense): Observable<any> {
     const headers = new HttpHeaders({
       'content-Type': 'application/json'
     });

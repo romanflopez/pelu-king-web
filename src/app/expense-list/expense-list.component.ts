@@ -13,7 +13,7 @@ import * as moment from 'moment'
   styleUrls: ['./expense-list.component.css']
 })
 export class ExpenseListComponent implements OnInit {
-
+  totalExpenses: number = 0
   expenses: Array<any> = []
   placeholder: any = {
     startDate: moment().startOf('month').format('DD-MM-YYYY'),
@@ -26,6 +26,8 @@ export class ExpenseListComponent implements OnInit {
 
     this.expenseService.getExpenses().pipe(map(x => x.expenses.docs)).subscribe(x => {
       this.expenses = x
+      console.log(this.expenses)
+      this.calculateTotals()
     })
   }
   onDateSelected(e) {
@@ -49,6 +51,9 @@ export class ExpenseListComponent implements OnInit {
       }
 
     });
+  }
+  calculateTotals() {
+    this.totalExpenses = this.expenses.reduce((a, b) => +a + +b.amount, 0);
   }
 
   deleteExpense(id: string, index: number, name: string) {
