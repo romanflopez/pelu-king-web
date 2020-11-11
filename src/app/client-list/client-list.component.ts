@@ -29,11 +29,12 @@ export class ClientListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClient()
+
   }
   onPageChange(pageIndex: number) {
     this.page.currentPage = pageIndex + 1
     this.clientService.getClients(this.page.currentPage).pipe(map(x => x.clients)).subscribe(x => {
-      this.clients = x.clients
+      this.clients = x.docs
     })
 
   }
