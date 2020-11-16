@@ -44,4 +44,17 @@ export class ExpenseService {
         throw error
       }))
   }
+
+  getExpensesByDate(model: any): Observable<any> {
+
+    const headers = new HttpHeaders({
+      'content-Type': 'application/json'
+
+    });
+    return this.http.get(this.URL + `/expenses/date?${model}`, { headers }).pipe(
+      catchError((error) => {
+        throw error
+      }))
+  }
+
 }

@@ -2,40 +2,52 @@
     <div class="d-flex mb-3">
         <h2>Agregar Corte</h2>
     </div>
-    <form class="d-flex" #f="ngForm" name="f">
-        <div class="col-lg-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Servicios</mat-label>
-                <mat-select name="service" required (ngModelChange)="calculateTotalService()"
-                    [(ngModel)]="model.services" multiple>
-                    <mat-option *ngFor="let service of serviceList" [value]="service">{{service.name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
+    <form #f="ngForm" name="f">
+        <div class="d-flex">
+            <div class="col-lg-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Servicios</mat-label>
+                    <mat-select name="service" required (ngModelChange)="calculateTotalService()"
+                        [(ngModel)]="model.services" multiple>
+                        <mat-option *ngFor="let service of serviceList" [value]="service">{{service.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Productos</mat-label>
+                    <mat-select name="products" (ngModelChange)="calculateTotalProducts()" [(ngModel)]="model.products"
+                        multiple>
+                        <mat-option *ngFor="let product of productList" [value]="product">{{product.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Barberos</mat-label>
+                    <mat-select name="barber" required [(ngModel)]="model.barberId">
+                        <mat-option *ngFor="let barber of barberList" [value]="barber._id">{{barber.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Sucursales</mat-label>
+                    <mat-select name="officeId" required [(ngModel)]="model.officeId">
+                        <mat-option *ngFor="let office of officeList" [value]="office._id">{{office.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
-        <div class="col-lg-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Productos</mat-label>
-                <mat-select name="products" (ngModelChange)="calculateTotalProducts()" [(ngModel)]="model.products"
-                    multiple>
-                    <mat-option *ngFor="let product of productList" [value]="product">{{product.name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="col-lg-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Barberos</mat-label>
-                <mat-select name="barber" required [(ngModel)]="model.barberId">
-                    <mat-option *ngFor="let barber of barberList" [value]="barber._id">{{barber.name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="col-lg-3">
-            <mat-form-field appearance="fill">
-                <mat-label>Sucursales</mat-label>
-                <mat-select name="officeId" required [(ngModel)]="model.officeId">
-                    <mat-option *ngFor="let office of officeList" [value]="office._id">{{office.name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div class="d-flex">
+            <div class="col-lg-3">
+                <mat-form-field appearance="fill">
+                    <mat-label>Tipo de Pago</mat-label>
+                    <mat-select name="paymentMethod" required [(ngModel)]="model.paymentMethod">
+                        <mat-option *ngFor="let payment of paymentMethod" [value]="payment">{{payment}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
         <br>
 

@@ -2,12 +2,14 @@ import { SnackbarService } from './../../shared-services/snackbar.service';
 import { AddCutService } from './add-cut.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+
 export interface AddCutModel {
   clientId: string
   barberId: string
   officeId: string
   services: Array<Service>
   products: Array<Product>
+  paymentMethod: string
 }
 
 export interface Service {
@@ -39,7 +41,10 @@ export class AddCutComponent implements OnInit {
   public productList: Array<Product>
   public barberList: Array<Barber>
   public officeList: Array<Office>
-  public model: AddCutModel = { clientId: '', barberId: '', officeId: '', services: [], products: [] }
+  CASH = 'CASH'
+  CARD = 'CARD'
+  public model: AddCutModel = { clientId: '', barberId: '', officeId: '', services: [], products: [], paymentMethod: '' }
+  paymentMethod = [this.CARD, this.CASH]
 
   constructor(private arouter: ActivatedRoute, private addCutService: AddCutService, private snackService: SnackbarService,
     private router: Router) { }

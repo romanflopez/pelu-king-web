@@ -83,3 +83,8 @@ mat-paginator{
 .bold{
    font-weight: bold;
 }
+.button-success{
+   background: #27ae60 ;
+   text-transform: uppercase;
+   color: white;
+}

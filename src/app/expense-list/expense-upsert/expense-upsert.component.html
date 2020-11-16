@@ -1,5 +1,8 @@
 <div class="container">
-    <app-back></app-back>
+    <div class="d-flex mt-3">
+        <app-back></app-back>
+        <h1 class="title-sections ml-2">Agregar Gasto</h1>
+    </div>
     <form #f="ngForm" name="f" (ngSubmit)="f.form.valid && saveExpense()">
         <div class="d-flex mt-4">
             <div class="col-lg-4 col-md-6 col-sm-12">
@@ -17,7 +20,8 @@
                 </mat-form-field>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-                <button type="submit" mat-raised-button [disabled]="!f.form.valid">Guardar</button>
+                <button class="button-success" type="submit" mat-raised-button
+                    [disabled]="!f.form.valid">Guardar</button>
             </div>
         </div>
     </form>

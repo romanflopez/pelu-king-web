@@ -7,6 +7,9 @@ import { map } from 'rxjs/operators';
 import { DeleteDialogComponent } from '../shared-components/delete-dialog/delete-dialog.component';
 import * as moment from 'moment'
 
+export interface DateFormat {
+
+}
 @Component({
   selector: 'app-expense-list',
   templateUrl: './expense-list.component.html',
@@ -23,17 +26,22 @@ export class ExpenseListComponent implements OnInit {
   constructor(private expenseService: ExpenseService, private router: Router, private dialog: MatDialog, private snackBarService: SnackbarService) { }
 
   ngOnInit(): void {
-
     this.expenseService.getExpenses().pipe(map(x => x.expenses.docs)).subscribe(x => {
       this.expenses = x
-      console.log(this.expenses)
       this.calculateTotals()
     })
   }
   onDateSelected(e) {
-    console.log(e)
-  }
+    const formatDate = 'YYYY-MM-DD'
+    let startDate = e.startDate.format(formatDate)
+    let endDate = e.endDate.format(formatDate)
+    const formated = `startDate=${startDate}&endDate=${endDate}`
+    this.expenseService.getExpensesByDate(formated).pipe(map(x => x.expenses.docs)).subscribe(x => {
+      this.expenses = x
+      this.calculateTotals()
+    })
 
+  }
   addExpense() {
     this.router.navigateByUrl('expense/add')
   }
@@ -72,10 +80,6 @@ export class ExpenseListComponent implements OnInit {
 
   showSnackbar(msg: string, class_css: string) {
     this.snackBarService.showSnackbar(msg, class_css);
-  }
-
-  selectionChanged(e) {
-    console.log(e)
   }
 
 }

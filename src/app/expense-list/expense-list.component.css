@@ -10,8 +10,25 @@
  
 }
 input{
+    padding: 5px;
     text-align: center;
     width: 277px !important;
     border-radius: 22.5px;
     border:1px solid #f1c40f  !important;
+}
+.icon-size{
+    width: 50px;
+}
+.box-size{
+    padding: 10px;
+}
+
+.expenses-total{
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    padding: 10px;
+}
+.number{
+    font-size: 20px;
+    font-weight: bold;
 }
