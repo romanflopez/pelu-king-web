@@ -78,7 +78,6 @@ export class EarningListComponent implements OnInit {
   }
   calculateTotal() {
     this.earningService.getTotalEarningsNoFilter().subscribe((x: Earnings) => {
-      console.log(x)
       this.earnings = x
     })
   }

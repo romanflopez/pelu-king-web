@@ -1,19 +1,21 @@
-.loading-spinner{    
-    position: absolute;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    display: grid;
+.loading-spinner {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  background-color: white;
+  z-index: 999;
 }
 
-.loading-spinner img{
-    align-self: center;
+.loading-spinner img {
+  align-self: center;
 }
 
-.loading-message{
-    text-align: center;
-    align-self: start;
+.loading-message {
+  text-align: center;
+  align-self: start;
 }
