@@ -1,47 +1,138 @@
 <div class="container">
-    <div class="col-lg-3">
-        <div class="d-flex">
-            <mat-form-field appearance="fill">
-                <mat-label>Sucursales</mat-label>
-                <mat-select required [(ngModel)]="model.officeId">
-                    <mat-option *ngFor="let office of officeList" [value]="office._id">{{office.name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <!-- <div class="d-flex">
-            <div class="col-lg-12 d-flex align-items-center justify-content-end">
-                <div class="d-flex">
-                    <div class="d-flex">
-                        <input class="search" name="client" [(ngModel)]="model.client" #client="ngModel"
-                            autocomplete="client" type="text" matInput placeholder="Buscar">
-                        <div class="search-icon">
-                            <div (click)="search()" class=" material-icons pointer rounded-circle">
-                                search
-                            </div>
-                        </div>
-                    </div>
+  <div class="row mt-3">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <mat-form-field appearance="fill">
+        <mat-label>Sucursales</mat-label>
+        <mat-select required [(ngModel)]="model.officeId">
+          <mat-option value="all">Todas</mat-option>
+          <mat-option *ngFor="let office of officeList" [value]="office._id">{{
+            office.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-                </div>
-            </div>
-        </div> -->
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <mat-form-field appearance="fill">
+        <mat-label>Barberos</mat-label>
+        <mat-select name="barber" required [(ngModel)]="model.barberId">
+          <mat-option value="all">Todos</mat-option>
+          <mat-option *ngFor="let barber of barberList" [value]="barber._id">{{
+            barber.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
-    <div class="d-flex">
-        <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="card">
-                <!-- <img class="icon-size" src="/assets/img/icons/clients.png" alt="clientes"> -->
-                <h3 class="card-title">Servicios</h3>
-                <!-- <h4 class="card-count ">{{counts.clientCount}}</h4> -->
-            </div>
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo de Pago</mat-label>
+        <mat-select
+          name="paymentMethod"
+          required
+          [(ngModel)]="model.paymentMethod"
+        >
+          <mat-option value="all">Todos</mat-option>
+          <mat-option
+            *ngFor="let payment of paymentMethod"
+            [value]="payment.value"
+            >{{ payment.name }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="justify-content-lg-start">
+        <div class="d-flex w-100 mt-2">
+          <input
+            class="input-store"
+            matInput
+            type="text"
+            [locale]="{
+              applyLabel: 'Aplicar',
+              cancelLabel: 'Cancelar',
+              format: 'DD-MM-YYYY '
+            }"
+            ngxDaterangepickerMd
+            (change)="onDateSelected($event)"
+            autocomplete="off"
+            placeholder="{{ placeholder.startDate }} {{ placeholder.endDate }}"
+            #daterange
+          />
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="card">
-                <!-- <img class="icon-size" src="/assets/img/icons/clients.png" alt="clientes"> -->
-                <h3 class="card-title">Productos</h3>
-                <!-- <h4 class="card-count ">{{counts.clientCount}}</h4> -->
-            </div>
+      </div>
+    </div>
+    <div class="col-lg-8 d-none d-md-block d-lg-block d-xl-block">
+      <div class="d-flex align-items-center d-flex justify-content-end h-100">
+        <button class="btn btn-primary w-30 btn-yellow" (click)="search()">
+          Filtrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="d-block d-sm-none primary">
+      <div class="col-lg-12 mt-3">
+        <button (click)="search()" class="btn btn-primary w-100 btn-yellow">
+          Filtrar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5 mb-4">
+    <div class="col-lg-12">
+      <div class="card shadow">
+        <div class="row">
+          <div class="col-lg-6 col-sm-12">
+            <span>Total Pagado: </span
+            ><span class="semi-win">{{ earnings.paymentAmount }}</span>
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <span> Total Gastos: </span
+            ><span class="lose">{{ earnings.expenseAmount }}</span>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="d-flex">
-        Total: {{model.total}}
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+      <div class="card shadow text-center">
+        <h3 class="card-title">Servicios</h3>
+        <div class="mb-4">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/service.png"
+            alt="Servicios"
+          />
+        </div>
+        <div class="card-total win pb-2">
+          {{ totalService?.servicesEarnings }}
+        </div>
+        <h4 class="card-count">
+          {{ totalService?.servicesCount }}
+        </h4>
+      </div>
     </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="card shadow text-center">
+        <h3 class="card-title">Productos</h3>
+        <div class="mb-4">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/products.png"
+            alt="productos"
+          />
+        </div>
+        <div class="card-total pb-2 win">
+          {{ totalProduct?.productEarnings }}
+        </div>
+        <h4 class="card-count">
+          {{ totalProduct?.productCount }}
+        </h4>
+      </div>
+    </div>
+  </div>
 </div>

@@ -3,13 +3,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 
+export interface Product {
+  name: string
+  price: string
+  stock: number
+}
 @Component({
   selector: 'app-upsert',
   templateUrl: './upsert.component.html',
   styleUrls: ['./upsert.component.sass']
 })
 export class ProductUpsertComponent implements OnInit {
-  model: any = { name: '', price: '' }
+  model: Product = { name: '', price: '', stock: 0 }
   id: string
   constructor(private productService: ProductService, private arouter: ActivatedRoute, private snackbarService: SnackbarService, private router: Router) { }
 
@@ -19,6 +24,7 @@ export class ProductUpsertComponent implements OnInit {
       this.productService.getProductById(this.id).subscribe(x => {
         this.model.name = x.name
         this.model.price = x.price
+        this.model.stock = x.stock
       })
     }
   }

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Product } from './upsert/upsert.component';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class ProductService {
       }))
 
   }
-  saveProduct(model: any): Observable<any> {
+  saveProduct(model: Product): Observable<any> {
     const headers = new HttpHeaders({
       'content-Type': 'application/json'
     });
@@ -56,11 +57,11 @@ export class ProductService {
       }))
   }
 
-  editProduct(model: any, id: string): Observable<any> {
+  editProduct(model: Product, id: string): Observable<any> {
     const headers = new HttpHeaders({
       'content-Type': 'application/json'
     });
-    return this.http.post(this.URL + `/edit/product/${id}`, model, { headers }).pipe(
+    return this.http.put(this.URL + `/edit/product/${id}`, model, { headers }).pipe(
       catchError((error) => {
         throw error
       }))

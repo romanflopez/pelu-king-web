@@ -1,54 +1,101 @@
 <ng-container *ngIf="counts">
-
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3">
-                <div class="card" [routerLink]="[ '/client-list' ]">
-                    <img class="icon-size" src="/assets/img/icons/clients.png" alt="clientes">
-                    <h3 class="card-title">Clientes</h3>
-                    <h4 class="card-count ">{{counts.clientCount}}</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12  mb-sm-3 mb-xs-3" *appRole="['ADMIN']">
-                <div class="card" [routerLink]="[ '/barber-list' ]">
-                    <img class="icon-size" src="/assets/img/icons/barber.png" alt="barberos">
-                    <h3 class="card-title">Barberos</h3>
-                    <h4 class="card-count ">{{counts.barberCount}}</h4>
-
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12" *appRole="['ADMIN']">
-                <div class="card" [routerLink]="[ '/product-list' ]">
-                    <img class="icon-size" src="/assets/img/icons/products.png" alt="productos">
-                    <h3 class="card-title">Productos</h3>
-                    <h4 class="card-count ">{{counts.productCount}}</h4>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3">
+        <div class="card" [routerLink]="['/client-list']">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/clients.png"
+            alt="clientes"
+          />
+          <h3 class="card-title">Clientes</h3>
+          <h4 class="card-count">{{ counts.clientCount }}</h4>
         </div>
-        <div class="row mt-5">
-            <div class="col-lg-4 col-md-4 col-sm-12  mb-sm-3 mb-xs-3" *appRole="['ADMIN']">
-                <div class="card" [routerLink]="[ '/service-list' ]">
-                    <img class="icon-size" src="/assets/img/icons/service.png" alt="Servicios">
-                    <h3 class="card-title">Servicios</h3>
-                    <h4 class="card-count ">{{counts.serviceCount}}</h4>
-
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12  mb-sm-3 mb-xs-3" *appRole="['ADMIN']">
-                <div class="card" [routerLink]="[ '/office-list' ]">
-                    <img class="icon-size" src="/assets/img/icons/office.png" alt="oficinas">
-                    <h3 class="card-title">Sucursales</h3>
-                    <h4 class="card-count ">{{counts.officeCount}}</h4>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12  mb-sm-3 mb-xs-3" *appRole="['ADMIN']">
-                <div class="card" [routerLink]="[ '/expenses-list' ]">
-                    <img class="icon-size" src="/assets/img/icons/presupuesto.png" alt="oficinas">
-                    <h3 class="card-title">Gastos</h3>
-                    <h4 class="card-count ">{{counts.expenseCount}}</h4>
-                </div>
-            </div>
-
+      </div>
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
+        *appRole="['ADMIN']"
+      >
+        <div class="card" [routerLink]="['/barber-list']">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/barber.png"
+            alt="barberos"
+          />
+          <h3 class="card-title">Barberos</h3>
+          <h4 class="card-count">{{ counts.barberCount }}</h4>
         </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12" *appRole="['ADMIN']">
+        <div class="card" [routerLink]="['/product-list']">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/products.png"
+            alt="productos"
+          />
+          <h3 class="card-title">Productos</h3>
+          <h4 class="card-count">{{ counts.productCount }}</h4>
+        </div>
+      </div>
     </div>
+    <div class="row mt-5">
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
+        *appRole="['ADMIN']"
+      >
+        <div class="card" [routerLink]="['/service-list']">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/service.png"
+            alt="Servicios"
+          />
+          <h3 class="card-title">Servicios</h3>
+          <h4 class="card-count">{{ counts.serviceCount }}</h4>
+        </div>
+      </div>
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
+        *appRole="['ADMIN']"
+      >
+        <div class="card" [routerLink]="['/office-list']">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/office.png"
+            alt="oficinas"
+          />
+          <h3 class="card-title">Sucursales</h3>
+          <h4 class="card-count">{{ counts.officeCount }}</h4>
+        </div>
+      </div>
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
+        *appRole="['ADMIN']"
+      >
+        <div class="card" [routerLink]="['/expenses-list']">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/presupuesto.png"
+            alt="oficinas"
+          />
+          <h3 class="card-title">Gastos</h3>
+          <h4 class="card-count">{{ counts.expenseCount }}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
+        *appRole="['ADMIN']"
+      >
+        <div class="card" [routerLink]="['/earning/list']">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/salario.png"
+            alt="salario"
+          />
+          <h3 class="card-title">Ganacias</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-container>
