@@ -52,6 +52,7 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { EarningListComponent } from './earning-list/earning-list.component';
 import { MyLoaderComponent } from './components/my-loader/my-loader.component';
 import { LoaderService } from './services/loader.service';
+import { PaymentsComponent } from './payments/payments.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { LoaderService } from './services/loader.service';
     ExpenseListComponent,
     ExpenseUpsertComponent,
     EarningListComponent,
-    MyLoaderComponent
+    MyLoaderComponent,
+    PaymentsComponent
   ],
   imports: [
     MatToolbarModule,

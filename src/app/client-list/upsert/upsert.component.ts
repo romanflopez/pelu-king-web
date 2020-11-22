@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-upsert',
   templateUrl: './upsert.component.html',
-  styleUrls: ['./upsert.component.sass']
+  styleUrls: ['./upsert.component.css']
 })
 export class ClientUpsertComponent implements OnInit {
   model: any = { name: '', surname: '', phone: '' }

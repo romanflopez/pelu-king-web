@@ -96,6 +96,19 @@
           <h3 class="card-title">Ganacias</h3>
         </div>
       </div>
+      <div
+        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
+        *appRole="['ADMIN']"
+      >
+        <div class="card" [routerLink]="['/payments']">
+          <img
+            class="icon-size"
+            src="/assets/img/icons/pagos.png"
+            alt="salario"
+          />
+          <h3 class="card-title">Pagos</h3>
+        </div>
+      </div>
     </div>
   </div>
 </ng-container>

@@ -1,85 +1,91 @@
 <div class="container">
-    <div class="d-flex mt-3 mb-4">
+  <div class="d-flex mt-3 mb-4">
+    <div class="col-lg-3">
+      <div class="d-flex">
+        <app-back class="d-flex align-items-center"></app-back>
+        <h1 class="title-sections ml-2">Lista de Clientes</h1>
+      </div>
+    </div>
+    <div class="col-lg-9 text-right">
+      <button class="btn-add" mat-raised-button (click)="addClient()">
+        Agregar Cliente
+      </button>
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <div class="col-lg-12 d-flex align-items-center justify-content-end">
+      <div class="d-flex">
+        <mat-form-field class="mr-3" appearance="fill">
+          <mat-label>Filtrar por</mat-label>
+          <mat-select (selectionChange)="onTypeOfFilterSelected($event)">
+            <mat-option *ngFor="let s of searchCombo" [value]="s.value">
+              {{ s.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="d-flex">
+          <mat-form-field appearance="fill" class="mr-3">
+            <input
+              (change)="onSearch($event)"
+              (keyup.enter)="search()"
+              class="search"
+              type="text"
+              matInput
+              placeholder="Buscar"
+            />
+          </mat-form-field>
+          <div class="mt-2">
+            <button
+              (click)="search()"
+              [disabled]="!model.typeOfFilter"
+              mat-flat-button
+              color="primary"
+            >
+              Buscar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex mt-5">
+    <div class="col-lg-3">Nombre</div>
+    <div class="col-lg-3">Apellido</div>
+    <div class="col-lg-3">Telefono</div>
+    <div class="col-lg-3 text-center">Acciones</div>
+  </div>
+  <ng-container *ngFor="let c of clients; let i = index">
+    <div>
+      <div class="d-flex w-100 list mt-3 align-items-center">
         <div class="col-lg-3">
-            <div class="d-flex">
-                <app-back class="d-flex align-items-center"></app-back>
-                <h1 class="title-sections ml-2 ">Lista de Clientes</h1>
-            </div>
+          {{ c.name }}
         </div>
-        <div class="col-lg-9 text-right">
-            <button class="btn-add" mat-raised-button (click)="addClient()"> Agregar Cliente</button>
+        <div class="col-lg-3">{{ c.surname }}</div>
+        <div class="col-lg-3">{{ c.phone }}</div>
+        <div class="d-flex col-lg-3 justify-content-end w-100">
+          <div class="w-100">
+            <button (click)="addCut(c._id)" mat-stroked-button>
+              Agregar Corte
+            </button>
+          </div>
+          <div class="mr-3" (click)="onClient(c._id)">
+            <span class="material-icons pointer"> edit </span>
+          </div>
+          <div (click)="openDialog(c.name, c._id, i)">
+            <span class="material-icons pointer"> delete </span>
+          </div>
         </div>
+      </div>
     </div>
+  </ng-container>
 
-    <div class="d-flex">
-
-
-        <div class="col-lg-12 d-flex align-items-center justify-content-end">
-            <div class="d-flex">
-                <mat-form-field class="mr-3" appearance="fill">
-                    <mat-label>Filtrar por</mat-label>
-                    <mat-select (selectionChange)="onTypeOfFilterSelected($event)">
-                        <mat-option *ngFor="let s of searchCombo" [value]="s.value">
-                            {{s.name}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <div class="d-flex">
-                    <mat-form-field appearance="fill" class="mr-3">
-                        <input (change)="onSearch($event)" (keyup.enter)="search()" class="search" type="text" matInput
-                            placeholder="Buscar">
-                    </mat-form-field>
-                    <div>
-                        <div class="search-icon">
-                            <div (click)="search()" class=" material-icons pointer rounded-circle">
-                                search
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="d-flex mt-5">
-        <div class="col-lg-3">Nombre</div>
-        <div class="col-lg-3">Apellido</div>
-        <div class="col-lg-3">Telefono</div>
-        <div class="col-lg-3 text-center">Acciones</div>
-    </div>
-    <ng-container *ngFor="let c of clients; let i = index">
-        <div>
-            <div class="d-flex w-100 list mt-3 align-items-center">
-                <div class="col-lg-3">
-                    {{c.name}}
-                </div>
-                <div class="col-lg-3">{{c.surname}}</div>
-                <div class="col-lg-3">{{c.phone}}</div>
-                <div class="d-flex col-lg-3 justify-content-end w-100">
-                    <div class="w-100">
-                        <button (click)="addCut(c._id)" mat-stroked-button>Agregar Corte</button>
-                    </div>
-                    <div class="mr-3" (click)="onClient(c._id)">
-                        <span class="material-icons pointer">
-                            edit
-                        </span>
-                    </div>
-                    <div (click)="openDialog(c.name,c._id,i)">
-                        <span class="material-icons pointer">
-                            delete
-                        </span>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-    </ng-container>
-
-    <mat-paginator class="mt-3 mb-1" [length]="page.total" [pageSize]="10" (page)="onPageChange($event.pageIndex)"
-        [pageIndex]="page.currentPage-1">
-    </mat-paginator>
-
-
+  <mat-paginator
+    class="mt-3 mb-1"
+    [length]="page.total"
+    [pageSize]="10"
+    (page)="onPageChange($event.pageIndex)"
+    [pageIndex]="page.currentPage - 1"
+  >
+  </mat-paginator>
 </div>

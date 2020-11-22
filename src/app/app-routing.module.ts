@@ -1,3 +1,4 @@
+import { PaymentsComponent } from './payments/payments.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { ExpenseUpsertComponent } from './expense-list/expense-upsert/expense-upsert.component';
 import { AddCutComponent } from './client-list/add-cut/add-cut.component';
@@ -152,6 +153,12 @@ const routes: Routes = [
   {
     path: 'earning/list',
     component: EarningListComponent,
+    canActivate: [AuthGuardGuard, RoleGuard],
+    data: { role: 'ADMIN' }
+  },
+  {
+    path: 'payments',
+    component: PaymentsComponent,
     canActivate: [AuthGuardGuard, RoleGuard],
     data: { role: 'ADMIN' }
   },

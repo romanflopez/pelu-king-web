@@ -45,7 +45,7 @@ export class AddCutComponent implements OnInit {
   public model: AddCutModel = { clientId: '', barberId: '', officeId: '', services: [], products: [], paymentMethod: '' }
   CASH = 'CASH'
   CARD = 'CARD'
-  paymentMethod = [this.CARD, this.CASH]
+  paymentMethod = [{ name: 'Efectivo', value: this.CASH }, { name: 'Tarjeta', value: this.CARD }]
 
   constructor(private arouter: ActivatedRoute, private addCutService: AddCutService, private snackService: SnackbarService,
     private router: Router) { }

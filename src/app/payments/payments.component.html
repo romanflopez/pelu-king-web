@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="row">
+    <app-back class="align-items-center"></app-back>
+    <h1 class="title-sections ml-2">Pago a Barberos</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-sm-12">
+      <div class="justify-content-lg-start">
+        <div class="d-flex w-100 mt-2">
+          <input
+            class="input-store"
+            matInput
+            type="text"
+            [locale]="{
+              applyLabel: 'Aplicar',
+              cancelLabel: 'Cancelar',
+              format: 'DD-MM-YYYY '
+            }"
+            ngxDaterangepickerMd
+            (change)="onDateSelected($event)"
+            autocomplete="off"
+            placeholder="{{ placeholder.startDate }} {{ placeholder.endDate }}"
+            #daterange
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-sm-12">
+      <mat-form-field appearance="fill">
+        <mat-label>Barberos</mat-label>
+        <mat-select name="barber" required [(ngModel)]="model.barberId">
+          <mat-option *ngFor="let barber of barberList" [value]="barber._id">{{
+            barber.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-lg-2">
+      <button type="button" class="btn btn-primary" (click)="search()">
+        Buscar
+      </button>
+    </div>
+  </div>
+
+  <div>
+    <ng-container *ngIf="paymentList">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <div class="card shadow text-center">
+            <h3 class="card-title">Ganancias</h3>
+            <div class="mb-4">
+              {{ paymentList?.earningsWithServices }}
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+          <div class="card shadow text-center">
+            <h3 class="card-title">Total a pagar :</h3>
+            <div class="mb-4">
+              {{ toPay }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Porcentaje</mat-label>
+        <input
+          matInput
+          [(ngModel)]="model.percentage"
+          #percentage="ngModel"
+          name="percentage"
+          placeholder="Porcentaje"
+        />
+      </mat-form-field>
+    </div>
+    <div class="col-lg-6">
+      <button
+        mat-raised-button
+        [disabled]="!(paymentList && paymentList.haircuts)"
+        type="button"
+        class="btn btn-primary"
+        (click)="calculate()"
+      >
+        Calcular
+      </button>
+    </div>
+  </div>
+  <ng-container *ngIf="paymentList && paymentList.haircuts">
+    <div class="card mb-2" *ngFor="let cut of paymentList.haircuts">
+      <div class="row p8">
+        <div class="col-lg-3">{{ cut.clientId }}</div>
+        <div class="col-lg-3">{{ cut.officeId }}</div>
+        <div class="col-lg-2">{{ cut.date | date: "dd/mm/yyyy" }}</div>
+        <div class="col-lg-1">{{ cut.amount }}</div>
+      </div>
+    </div>
+  </ng-container>
+</div>
