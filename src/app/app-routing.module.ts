@@ -58,7 +58,7 @@ const routes: Routes = [
     path: 'client/add',
     component: ClientUpsertComponent,
     canActivate: [AuthGuardGuard, RoleGuard],
-    data: { role: 'ADMIN' }
+
   },
   {
     path: 'barber-list',
