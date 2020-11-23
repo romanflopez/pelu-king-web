@@ -147,8 +147,7 @@ const routes: Routes = [
   {
     path: 'client/add/cut/:id',
     component: AddCutComponent,
-    canActivate: [AuthGuardGuard, RoleGuard],
-    data: { role: 'ADMIN' }
+    canActivate: [AuthGuardGuard, RoleGuard]
   },
   {
     path: 'earning/list',
