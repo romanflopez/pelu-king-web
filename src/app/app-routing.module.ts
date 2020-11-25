@@ -51,8 +51,7 @@ const routes: Routes = [
   {
     path: 'client/edit/:id',
     component: ClientUpsertComponent,
-    canActivate: [AuthGuardGuard, RoleGuard],
-    data: { role: 'ADMIN' }
+    canActivate: [AuthGuardGuard, RoleGuard]
   },
   {
     path: 'client/add',
