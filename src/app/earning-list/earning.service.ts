@@ -28,7 +28,7 @@ export class EarningService {
   getTotalServices(data?): Observable<any> {
     let url
     if (data) {
-      url = `/earnings/services?startDate=${data.startDate}&endDate=${data.endDate}&barberId=${data.barberId}&officeId=all`
+      url = `/earnings/services?startDate=${data.startDate}&endDate=${data.endDate}&barberId=${data.barberId}&officeId=${data.officeId}`
     } else {
       url = '/earnings/services?startDate=all&&endDate=all&barberId=all&officeId=all'
     }
@@ -47,7 +47,7 @@ export class EarningService {
   getTotalProducts(data?): Observable<any> {
     let url
     if (data) {
-      url = `/earnings/products?startDate=${data.startDate}&endDate=${data.endDate}&barberId=${data.barberId}&officeId=all`
+      url = `/earnings/products?startDate=${data.startDate}&endDate=${data.endDate}&barberId=${data.barberId}&officeId=${data.officeId}`
     } else {
       url = '/earnings/products?startDate=all&&endDate=all&barberId=all&officeId=all'
     }

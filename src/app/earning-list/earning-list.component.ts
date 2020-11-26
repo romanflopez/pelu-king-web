@@ -109,10 +109,10 @@ export class EarningListComponent implements OnInit {
   }
 
   getTotals() {
-    this.earningService.getTotalProducts({ startDate: this.model.startDate, endDate: this.model.endDate, barberId: this.model.barberId }).subscribe((x: TotalProdcut) => {
+    this.earningService.getTotalProducts({ startDate: this.model.startDate, endDate: this.model.endDate, barberId: this.model.barberId, officeId: this.model.officeId }).subscribe((x: TotalProdcut) => {
       this.setTotalProduct(x)
     })
-    this.earningService.getTotalServices({ startDate: this.model.startDate, endDate: this.model.endDate, barberId: this.model.barberId }).subscribe((x: TotalService) => {
+    this.earningService.getTotalServices({ startDate: this.model.startDate, endDate: this.model.endDate, barberId: this.model.barberId, officeId: this.model.officeId }).subscribe((x: TotalService) => {
       this.setTotalService(x)
     })
 
