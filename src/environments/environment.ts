@@ -5,7 +5,7 @@ import { EnvironmentInterface } from './../app/model/models.model';
 
 export const environment: EnvironmentInterface = {
   production: false,
-  apiUrl: 'https://peluking-app.herokuapp.com/api'
+  apiUrl: 'http://localhost:3000/api'
 };
 
 /*
