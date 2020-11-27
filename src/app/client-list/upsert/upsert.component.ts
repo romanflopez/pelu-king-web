@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./upsert.component.css']
 })
 export class ClientUpsertComponent implements OnInit {
-  currentRol = JSON.parse(localStorage.getItem('user_data'))
+  currentRol = JSON.parse(localStorage.getItem('user_data')).role[0]
   model: any = { name: '', surname: '', phone: '' }
   id: string
   constructor(private clientService: ClientListService, private arouter: ActivatedRoute, public location: Location,

@@ -19,7 +19,7 @@
             required
             matInput
             placeholder="Nombre"
-            [disabled]="id && currentRol !== 'MOD'"
+            [disabled]="id && currentRol == 'MOD'"
           />
         </mat-form-field>
       </div>
@@ -36,7 +36,7 @@
             required
             matInput
             placeholder="Apellido"
-            [disabled]="id && currentRol !== 'MOD'"
+            [disabled]="id && currentRol == 'MOD'"
           />
         </mat-form-field>
       </div>
