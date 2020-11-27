@@ -72,7 +72,7 @@
           <div class="mr-3" (click)="onClient(c._id)">
             <span class="material-icons pointer"> edit </span>
           </div>
-          <div (click)="openDialog(c.name, c._id, i)">
+          <div *appRole="['ADMIN']" (click)="openDialog(c.name, c._id, i)">
             <span class="material-icons pointer"> delete </span>
           </div>
         </div>
