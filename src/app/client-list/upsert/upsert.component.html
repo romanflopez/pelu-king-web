@@ -4,7 +4,7 @@
     <h1 class="title-sections ml-2">Agregar Cliente</h1>
   </div>
 
-  <form #f="ngForm" name="f" (ngSubmit)="f.form.valid && upsert()">
+  <form #f="ngForm" name="f" (ngSubmit)="upsert()">
     <div class="row mt-4">
       <div class="col-lg-3 col-md-6 col-sm-12">
         <mat-form-field class="example-full-width" appearance="outline">
@@ -19,6 +19,7 @@
             required
             matInput
             placeholder="Nombre"
+            [disabled]="id && currentRol !== 'MOD'"
           />
         </mat-form-field>
       </div>
@@ -35,6 +36,7 @@
             required
             matInput
             placeholder="Apellido"
+            [disabled]="id && currentRol !== 'MOD'"
           />
         </mat-form-field>
       </div>
@@ -42,7 +44,7 @@
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Telefono</mat-label>
           <input
-            name="surname"
+            name="phone"
             [(ngModel)]="model.phone"
             #phone="ngModel"
             required
@@ -55,12 +57,7 @@
         </mat-form-field>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-12 text-center">
-        <button
-          class="mt-1 button-success"
-          type="submit"
-          mat-raised-button
-          [disabled]="!f.form.valid"
-        >
+        <button class="mt-1 button-success" type="submit" mat-raised-button>
           Guardar
         </button>
       </div>
