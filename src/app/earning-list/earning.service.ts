@@ -28,9 +28,9 @@ export class EarningService {
   getTotalServices(data?): Observable<any> {
     let url
     if (data) {
-      url = `/earnings/services?startDate=${data.startDate}&endDate=${data.endDate}&barberId=${data.barberId}&officeId=${data.officeId}`
+      url = `/earnings/services?startDate=${data.startDate}&endDate=${data.endDate}&barberId=${data.barberId}&officeId=${data.officeId}&paymentMethod=${data.paymentMethod}`
     } else {
-      url = '/earnings/services?startDate=all&&endDate=all&barberId=all&officeId=all'
+      url = '/earnings/services?startDate=all&&endDate=all&barberId=all&officeId=all&paymentMethod=all'
     }
 
     const headers = new HttpHeaders({
@@ -47,9 +47,9 @@ export class EarningService {
   getTotalProducts(data?): Observable<any> {
     let url
     if (data) {
-      url = `/earnings/products?startDate=${data.startDate}&endDate=${data.endDate}&barberId=${data.barberId}&officeId=${data.officeId}`
+      url = `/earnings/products?startDate=${data.startDate}&endDate=${data.endDate}&barberId=${data.barberId}&officeId=${data.officeId}&paymentMethod=${data.paymentMethod}`
     } else {
-      url = '/earnings/products?startDate=all&&endDate=all&barberId=all&officeId=all'
+      url = '/earnings/products?startDate=all&&endDate=all&barberId=all&officeId=all&paymentMethod=all'
     }
 
     const headers = new HttpHeaders({
