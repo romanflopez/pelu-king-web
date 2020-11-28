@@ -57,6 +57,7 @@ import { SummaryDialogComponent } from './summary-dialog/summary-dialog.componen
 import { DashboardCardComponent } from './shared-components/dashboard-card/dashboard-card.component';
 import { StockAlertComponent } from './stock-alert/stock-alert.component';
 import { StockRowComponent } from './stock-row/stock-row.component';
+import { StockColorPipe } from './stock-color.pipe';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { StockRowComponent } from './stock-row/stock-row.component';
     SummaryDialogComponent,
     DashboardCardComponent,
     StockAlertComponent,
-    StockRowComponent
+    StockRowComponent,
+    StockColorPipe
   ],
   imports: [
     MatToolbarModule,

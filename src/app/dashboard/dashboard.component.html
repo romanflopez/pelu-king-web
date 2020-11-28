@@ -23,7 +23,7 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
         <app-dashboard-card
-          [route]="'product-list'"
+          [route]="'/product-list'"
           [iconSrc]="'/assets/img/icons/products.png'"
           [total]="counts.productsCount"
           [title]="'Productos'"
@@ -33,7 +33,7 @@
     <div class="row mt-5">
       <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
         <app-dashboard-card
-          [route]="'service-list'"
+          [route]="'/service-list'"
           [iconSrc]="'/assets/img/icons/service.png'"
           [total]="counts.servicesCount"
           [title]="'Servicios'"
@@ -41,7 +41,7 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
         <app-dashboard-card
-          [route]="'office-list'"
+          [route]="'/office-list'"
           [iconSrc]="'/assets/img/icons/office.png'"
           [total]="counts.officesCount"
           [title]="'Sucursales'"
@@ -49,7 +49,7 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
         <app-dashboard-card
-          [route]="'expenses-list'"
+          [route]="'/expenses-list'"
           [iconSrc]="'/assets/img/icons/presupuesto.png'"
           [total]="counts.expensesCount"
           [title]="'Gastos'"

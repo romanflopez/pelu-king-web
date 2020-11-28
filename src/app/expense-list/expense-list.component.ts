@@ -68,8 +68,11 @@ export class ExpenseListComponent implements OnInit {
     this.expenseService.deleteExpense(id).subscribe(x => {
       if (x.status) {
         if (this.expenses.indexOf(this.expenses[index]) == index) {
+          const current = this.expenses[index]
           this.expenses.splice(index, 1)
+          this.totalExpenses -= current.amount
           const msg = 'Se borro el cliente ' + name
+
           this.showSnackbar(msg, 'delete-client-snackbar')
         }
       }
