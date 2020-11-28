@@ -58,6 +58,7 @@ import { DashboardCardComponent } from './shared-components/dashboard-card/dashb
 import { StockAlertComponent } from './stock-alert/stock-alert.component';
 import { StockRowComponent } from './stock-row/stock-row.component';
 import { StockColorPipe } from './stock-color.pipe';
+import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
 
 
 @NgModule({
@@ -121,6 +122,7 @@ import { StockColorPipe } from './stock-color.pipe';
     ReactiveFormsModule,
     MatRadioModule,
     MatIconModule,
+    NgxTrimDirectiveModule,
     NgxDaterangepickerMd.forRoot()
 
   ],
