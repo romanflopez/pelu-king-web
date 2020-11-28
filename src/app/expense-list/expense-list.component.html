@@ -1,68 +1,81 @@
 <div class="container">
-    <div class="d-flex mt-4">
+  <div class="d-flex mt-4">
+    <div class="col-lg-3">
+      <div class="d-flex">
+        <app-back class="d-flex align-items-center"></app-back>
+        <h1 class="title-sections ml-2">Lista de Gastos</h1>
+      </div>
+    </div>
+    <div class="col-lg-9 d-flex align-items-center justify-content-end">
+      <div class="d-flex">
+        <button class="btn-add" (click)="addExpense()" mat-raised-button>
+          Agregar Gastos
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end mt-3">
+    <div class="col-lg-5 expenses-total">
+      <div class="d-flex">
         <div class="col-lg-3">
-            <div class="d-flex">
-                <app-back class="d-flex align-items-center"></app-back>
-                <h1 class="title-sections ml-2 ">Lista de Gastos</h1>
-            </div>
+          <img class="icon-size" src="/assets/img/icons/ingresos.png" alt="" />
         </div>
-        <div class="col-lg-9 d-flex align-items-center justify-content-end">
-            <div class="d-flex">
-                <button class="btn-add" (click)="addExpense()" mat-raised-button> Agregar Gastos</button>
-            </div>
+        <div class="col-lg-5 align-items-center d-flex">Gastos totales</div>
+        <div
+          class="col-lg-4 align-items-center d-flex text-center justify-content-end"
+        >
+          <span class="number">{{ totalExpenses }}</span>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="d-flex mt-2">
+    <div class="d-flex justify-content-start w-100 mt-5">
+      <div class="d-flex align-items-center mr-3">Filtro por Fecha:</div>
+      <input
+        class="input-store"
+        matInput
+        type="text"
+        [locale]="{
+          applyLabel: 'Aplicar',
+          cancelLabel: 'Cancelar',
+          format: 'DD-MM-YYYY '
+        }"
+        ngxDaterangepickerMd
+        (change)="onDateSelected($event)"
+        autocomplete="off"
+        placeholder="{{ placeholder.startDate }} {{ placeholder.endDate }}"
+        #daterange
+      />
+    </div>
+  </div>
 
-    <div class="d-flex justify-content-end mt-3">
-        <div class="col-lg-5 expenses-total">
-            <div class="d-flex ">
-                <div class="col-lg-3">
-                    <img class="icon-size" src="/assets/img/icons/ingresos.png" alt="">
-                </div>
-                <div class="col-lg-5 align-items-center d-flex">
-                    Gastos totales
-                </div>
-                <div class="col-lg-4 align-items-center d-flex text-center justify-content-end">
-                    <span class="number">{{totalExpenses}}</span>
-                </div>
-            </div>
+  <ng-container *ngFor="let e of expenses; let i = index">
+    <div class="mb-2 list d-flex align-items-center mt-3">
+      <div class="d-flex w-100">
+        <div class="col-lg-4">
+          {{ e.name }}
         </div>
+        <div class="col-lg-4">
+          <span class="bold">{{ e.amount }}</span>
+        </div>
+        <div class="col-lg-2">
+          {{ e.date | date: "dd/MM/yyyy" }}
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="d-flex justify-content-end w-100">
+          <div>
+            <span
+              class="material-icons pointer"
+              (click)="openDialog(e.name, e._id, i)"
+            >
+              delete
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="d-flex mt-2">
-        <div class="d-flex  justify-content-start w-100 mt-5">
-            <div class="d-flex align-items-center mr-3">
-                Filtro por Fecha:
-            </div>
-            <input class="input-store" matInput type="text"
-                [locale]="{applyLabel: 'Aplicar', cancelLabel: 'Cancelar',format: 'DD-MM-YYYY '}" ngxDaterangepickerMd
-                (change)="onDateSelected($event)" autocomplete="off"
-                placeholder="{{placeholder.startDate}} {{placeholder.endDate}}" #daterange />
-        </div>
-    </div>
-    <ng-container *ngFor="let e of expenses; let i = index ">
-        <pre>{{e.price}}</pre>
-        <div class="mb-2 list  d-flex align-items-center mt-3">
-            <div class="d-flex w-100">
-                <div class="col-lg-4">
-                    {{e.name}}
-                </div>
-                <div class="col-lg-4">
-                    {{e.amount}}
-                </div>
-                <div class="col-lg-2">
-                    {{e.date  | date : 'dd/MM/yyyy'}}
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="d-flex  justify-content-end w-100">
-
-                    <div>
-                        <span class="material-icons pointer" (click)="openDialog(e.name,e._id,i)">
-                            delete
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </ng-container>
+  </ng-container>
 </div>
