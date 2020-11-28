@@ -12,3 +12,8 @@ export interface CountAll {
     productsCount: number
     servicesCount: number
 }
+
+export interface StockModel {
+    name: string
+    stock: number
+}

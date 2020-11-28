@@ -1,1 +1,15 @@
-<p>dashboard-card works!</p>
+<div class="card" [routerLink]="[route]">
+  <div class="content">
+    <div class="row">
+      <div class="col-lg-3 text-center">
+        <img class="icon-size" [src]="iconSrc" alt="clientes" />
+      </div>
+      <div class="col-lg-9">
+        <h3 class="card-title text-center">{{ title }}</h3>
+        <h4 *ngIf="total" class="card-count text-center">
+          {{ total }}
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

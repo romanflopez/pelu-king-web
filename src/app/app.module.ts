@@ -55,6 +55,8 @@ import { LoaderService } from './services/loader.service';
 import { PaymentsComponent } from './payments/payments.component';
 import { SummaryDialogComponent } from './summary-dialog/summary-dialog.component';
 import { DashboardCardComponent } from './shared-components/dashboard-card/dashboard-card.component';
+import { StockAlertComponent } from './stock-alert/stock-alert.component';
+import { StockRowComponent } from './stock-row/stock-row.component';
 
 
 @NgModule({
@@ -85,7 +87,9 @@ import { DashboardCardComponent } from './shared-components/dashboard-card/dashb
     MyLoaderComponent,
     PaymentsComponent,
     SummaryDialogComponent,
-    DashboardCardComponent
+    DashboardCardComponent,
+    StockAlertComponent,
+    StockRowComponent
   ],
   imports: [
     MatToolbarModule,

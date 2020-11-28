@@ -1,114 +1,81 @@
 <ng-container *ngIf="counts">
   <div class="container">
     <div class="row mt-5">
-      <div class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3">
-        <div class="card" [routerLink]="['/client-list']">
-          <img
-            class="icon-size"
-            src="/assets/img/icons/clients.png"
-            alt="clientes"
-          />
-          <h3 class="card-title">Clientes</h3>
-          <h4 class="card-count">{{ counts.clientsCount }}</h4>
-        </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer">
+        <app-dashboard-card
+          [route]="'/client-list'"
+          [iconSrc]="'/assets/img/icons/clients.png'"
+          [total]="counts.clientsCount"
+          [title]="'Clientes'"
+        ></app-dashboard-card>
       </div>
-      <div
-        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
-        *appRole="['ADMIN']"
-      >
-        <div class="card" [routerLink]="['/barber-list']">
-          <img
-            class="icon-size"
-            src="/assets/img/icons/barber.png"
-            alt="barberos"
-          />
-          <h3 class="card-title">Barberos</h3>
-          <h4 class="card-count">{{ counts.barbersCount }}</h4>
-        </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'/barber-list'"
+          [iconSrc]="'/assets/img/icons/barber.png'"
+          [total]="counts.barbersCount"
+          [title]="'Barberos'"
+        ></app-dashboard-card>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12" *appRole="['ADMIN']">
-        <div class="card" [routerLink]="['/product-list']">
-          <img
-            class="icon-size"
-            src="/assets/img/icons/products.png"
-            alt="productos"
-          />
-          <h3 class="card-title">Productos</h3>
-          <h4 class="card-count">{{ counts.productsCount }}</h4>
-        </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'product-list'"
+          [iconSrc]="'/assets/img/icons/products.png'"
+          [total]="counts.productsCount"
+          [title]="'Productos'"
+        ></app-dashboard-card>
       </div>
     </div>
     <div class="row mt-5">
-      <div
-        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
-        *appRole="['ADMIN']"
-      >
-        <div class="card" [routerLink]="['/service-list']">
-          <img
-            class="icon-size"
-            src="/assets/img/icons/service.png"
-            alt="Servicios"
-          />
-          <h3 class="card-title">Servicios</h3>
-          <h4 class="card-count">{{ counts.servicesCount }}</h4>
-        </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'service-list'"
+          [iconSrc]="'/assets/img/icons/service.png'"
+          [total]="counts.servicesCount"
+          [title]="'Servicios'"
+        ></app-dashboard-card>
       </div>
-      <div
-        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
-        *appRole="['ADMIN']"
-      >
-        <div class="card" [routerLink]="['/office-list']">
-          <img
-            class="icon-size"
-            src="/assets/img/icons/office.png"
-            alt="oficinas"
-          />
-          <h3 class="card-title">Sucursales</h3>
-          <h4 class="card-count">{{ counts.officesCount }}</h4>
-        </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'office-list'"
+          [iconSrc]="'/assets/img/icons/office.png'"
+          [total]="counts.officesCount"
+          [title]="'Sucursales'"
+        ></app-dashboard-card>
       </div>
-      <div
-        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
-        *appRole="['ADMIN']"
-      >
-        <div class="card" [routerLink]="['/expenses-list']">
-          <img
-            class="icon-size"
-            src="/assets/img/icons/presupuesto.png"
-            alt="oficinas"
-          />
-          <h3 class="card-title">Gastos</h3>
-          <h4 class="card-count">{{ counts.expensesCount }}</h4>
-        </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'expenses-list'"
+          [iconSrc]="'/assets/img/icons/presupuesto.png'"
+          [total]="counts.expensesCount"
+          [title]="'Gastos'"
+        ></app-dashboard-card>
       </div>
     </div>
     <div class="row mt-5">
-      <div
-        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
-        *appRole="['ADMIN']"
-      >
-        <div class="card" [routerLink]="['/earning/list']">
-          <img
-            class="icon-size"
-            src="/assets/img/icons/salario.png"
-            alt="salario"
-          />
-          <h3 class="card-title">Ganacias</h3>
-        </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'/earning/list'"
+          [iconSrc]="'/assets/img/icons/salario.png'"
+          [title]="'Ganacias'"
+        ></app-dashboard-card>
       </div>
-      <div
-        class="col-lg-4 col-md-4 col-sm-12 mb-sm-3 mb-xs-3"
-        *appRole="['ADMIN']"
-      >
-        <div class="card" [routerLink]="['/payments']">
-          <img
-            class="icon-size"
-            src="/assets/img/icons/pagos.png"
-            alt="salario"
-          />
-          <h3 class="card-title">Pagos</h3>
-        </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'/payments'"
+          [iconSrc]="'/assets/img/icons/pagos.png'"
+          [title]="'Pagos'"
+        ></app-dashboard-card>
       </div>
     </div>
   </div>
 </ng-container>
+<div class="container mt-2" *ngIf="stockList?.length > 0">
+  <div class="row">
+    <h1 class="title-sections mt-3">Alertas</h1>
+  </div>
+  <div class="row w-100 mt-3">
+    <app-stock-alert class="w-100" [stockList]="stockList"></app-stock-alert>
+  </div>
+</div>

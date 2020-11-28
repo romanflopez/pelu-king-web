@@ -22,4 +22,14 @@ export class DashboardService {
         throw error
       }))
   }
+  getStock(): Observable<any> {
+    const headers = new HttpHeaders({
+      'content-Type': 'application/json'
+    });
+    return this.http.get(this.URL + '/products/outOfStock', { headers }).pipe(
+      catchError((error) => {
+        throw error
+      }))
+  }
+
 }
