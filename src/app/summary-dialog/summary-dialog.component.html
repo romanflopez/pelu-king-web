@@ -1,0 +1,20 @@
+papu
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-lg-6">{{ data?.servicesEarnings }}</div>
+    <div class="col-lg-6">{{ data?.servicesCount }}</div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">{{ data?.data.servicesEarnings }}</div>
+    <div class="col-lg-6">{{ data?.data.servicesCount }}</div>
+  </div>
+  <ng-container *ngFor="let service of data.data.service">
+    <div class="row card">
+      <div>{{ service.amount }}</div>
+      <div>{{ service.paymentMethod }}</div>
+    </div>
+  </ng-container>
+</div>

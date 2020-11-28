@@ -53,6 +53,8 @@ import { EarningListComponent } from './earning-list/earning-list.component';
 import { MyLoaderComponent } from './components/my-loader/my-loader.component';
 import { LoaderService } from './services/loader.service';
 import { PaymentsComponent } from './payments/payments.component';
+import { SummaryDialogComponent } from './summary-dialog/summary-dialog.component';
+import { DashboardCardComponent } from './shared-components/dashboard-card/dashboard-card.component';
 
 
 @NgModule({
@@ -81,7 +83,9 @@ import { PaymentsComponent } from './payments/payments.component';
     ExpenseUpsertComponent,
     EarningListComponent,
     MyLoaderComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    SummaryDialogComponent,
+    DashboardCardComponent
   ],
   imports: [
     MatToolbarModule,
@@ -114,7 +118,7 @@ import { PaymentsComponent } from './payments/payments.component';
     NgxDaterangepickerMd.forRoot()
 
   ],
-  entryComponents: [DeleteDialogComponent],
+  entryComponents: [DeleteDialogComponent, SummaryDialogComponent],
   providers: [LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true }],
   bootstrap: [AppComponent]

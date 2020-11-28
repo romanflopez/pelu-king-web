@@ -1,6 +1,8 @@
+import { SummaryDialogComponent } from './../summary-dialog/summary-dialog.component';
 import { EarningService } from './earning.service';
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment'
+import { MatDialog } from '@angular/material/dialog';
 export interface Earnings {
   totalAmount: number
   paymentAmount: number
@@ -9,6 +11,7 @@ export interface Earnings {
 export interface TotalService {
   servicesCount: number
   servicesEarnings: number
+  services: any
 }
 export interface TotalProdcut {
   productCount: number
@@ -22,13 +25,13 @@ export interface TotalProdcut {
 
 export class EarningListComponent implements OnInit {
 
-  constructor(private earningService: EarningService) { }
+  constructor(private earningService: EarningService, public dialog: MatDialog) { }
   placeholder: any = {
     startDate: moment().startOf('month').format('YYYY-MM-DD'),
     endDate: moment().endOf('month').format("YYYY-MM-DD"),
   }
   earnings: Earnings = { totalAmount: 0, paymentAmount: 0, expenseAmount: 0 }
-  totalService: TotalService = { servicesCount: null, servicesEarnings: null }
+  totalService: TotalService = { servicesCount: null, servicesEarnings: null, services: [] }
   totalProduct: TotalProdcut = { productCount: null, productEarnings: null }
   model: any = { officeId: 'all', barberId: 'all', paymentMethod: 'all', startDate: this.placeholder.startDate, endDate: this.placeholder.endDate }
   officeList: any[] = []
@@ -68,6 +71,7 @@ export class EarningListComponent implements OnInit {
 
   getTotalService() {
     this.earningService.getTotalServices().subscribe((x: TotalService) => {
+      console.log(x)
       this.setTotalService(x)
     })
   }
@@ -106,6 +110,8 @@ export class EarningListComponent implements OnInit {
   private setTotalService(totalService: TotalService) {
     this.totalService.servicesCount = totalService.servicesCount
     this.totalService.servicesEarnings = totalService.servicesEarnings
+    this.totalService.services = totalService.services
+    console.log(this.totalService)
   }
 
   getTotals() {
@@ -113,7 +119,15 @@ export class EarningListComponent implements OnInit {
       this.setTotalProduct(x)
     })
     this.earningService.getTotalServices({ startDate: this.model.startDate, endDate: this.model.endDate, barberId: this.model.barberId, officeId: this.model.officeId, paymentMethod: this.model.paymentMethod }).subscribe((x: TotalService) => {
+      console.log(x)
       this.setTotalService(x)
+    })
+
+  }
+
+  openDialog(data) {
+    const dialogRef = this.dialog.open(SummaryDialogComponent, {
+      data: { data }
     })
 
   }

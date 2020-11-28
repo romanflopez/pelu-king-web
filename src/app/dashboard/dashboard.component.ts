@@ -1,7 +1,7 @@
-import { Observable, forkJoin } from 'rxjs';
 import { DashboardService } from './dashboard.service';
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { CountAll } from '../model/models.model';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -13,12 +13,10 @@ export class DashboardComponent implements OnInit {
   constructor(private dashboardService: DashboardService) { }
 
   ngOnInit(): void {
-    forkJoin(this.dashboardService.getBarberCount(), this.dashboardService.getOfficeCount(), this.dashboardService.getProductCount(), this.dashboardService.getServiceCount(), this.dashboardService.getClientCount(), this.dashboardService.getExpensesCount()).pipe(map(x => {
-      return { barberCount: x[0].count, officeCount: x[1].count, productCount: x[2].count, serviceCount: x[3].count, clientCount: x[4].count, expenseCount: x[5].count }
-    }))
-      .subscribe(x => {
-        this.counts = x
-      })
+    this.dashboardService.countAll().subscribe((x: CountAll) => {
+      console.log(x)
+      this.counts = x
+    })
   }
 
 }
