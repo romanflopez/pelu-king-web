@@ -60,6 +60,7 @@ import { StockRowComponent } from './stock-row/stock-row.component';
 import { StockColorPipe } from './stock-color.pipe';
 import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
 import { PaymentMethodPipe } from './payment-method.pipe';
+import { SummaryDialogProductComponent } from './summary-dialog-product/summary-dialog-product.component';
 
 
 @NgModule({
@@ -94,7 +95,8 @@ import { PaymentMethodPipe } from './payment-method.pipe';
     StockAlertComponent,
     StockRowComponent,
     StockColorPipe,
-    PaymentMethodPipe
+    PaymentMethodPipe,
+    SummaryDialogProductComponent
   ],
   imports: [
     MatToolbarModule,
@@ -128,7 +130,7 @@ import { PaymentMethodPipe } from './payment-method.pipe';
     NgxDaterangepickerMd.forRoot()
 
   ],
-  entryComponents: [DeleteDialogComponent, SummaryDialogComponent],
+  entryComponents: [DeleteDialogComponent, SummaryDialogComponent, SummaryDialogProductComponent],
   providers: [LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true }],
   bootstrap: [AppComponent]

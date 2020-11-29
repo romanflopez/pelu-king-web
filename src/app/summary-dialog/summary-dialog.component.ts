@@ -11,7 +11,8 @@ export class SummaryDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<SummaryDialogComponent>) { }
 
   ngOnInit(): void {
-    console.log(this.data)
+
+
   }
 
   close() {

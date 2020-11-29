@@ -1,3 +1,4 @@
+import { SummaryDialogProductComponent } from './../summary-dialog-product/summary-dialog-product.component';
 import { SummaryDialogComponent } from './../summary-dialog/summary-dialog.component';
 import { EarningService } from './earning.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,6 +17,7 @@ export interface TotalService {
 export interface TotalProdcut {
   productCount: number
   productEarnings: number
+  arrayProducts: []
 }
 @Component({
   selector: 'app-earning-list',
@@ -32,7 +34,7 @@ export class EarningListComponent implements OnInit {
   }
   earnings: Earnings = { totalAmount: 0, paymentAmount: 0, expenseAmount: 0 }
   totalService: TotalService = { servicesCount: null, servicesEarnings: null, services: [] }
-  totalProduct: TotalProdcut = { productCount: null, productEarnings: null }
+  totalProduct: TotalProdcut = { productCount: null, productEarnings: null, arrayProducts: [] }
   model: any = { officeId: 'all', barberId: 'all', paymentMethod: 'all', startDate: this.placeholder.startDate, endDate: this.placeholder.endDate }
   officeList: any[] = []
   barberList: any[] = []
@@ -103,9 +105,10 @@ export class EarningListComponent implements OnInit {
     this.model.endDate = endDate
   }
 
-  private setTotalProduct(totalProduct: TotalProdcut) {
+  private setTotalProduct(totalProduct: any) {
     this.totalProduct.productCount = totalProduct.productCount
     this.totalProduct.productEarnings = totalProduct.productEarnings
+    this.totalProduct.arrayProducts = totalProduct.arrayProducts
   }
   private setTotalService(totalService: TotalService) {
     this.totalService.servicesCount = totalService.servicesCount
@@ -119,7 +122,6 @@ export class EarningListComponent implements OnInit {
       this.setTotalProduct(x)
     })
     this.earningService.getTotalServices({ startDate: this.model.startDate, endDate: this.model.endDate, barberId: this.model.barberId, officeId: this.model.officeId, paymentMethod: this.model.paymentMethod }).subscribe((x: TotalService) => {
-      console.log(x)
       this.setTotalService(x)
     })
 
@@ -127,6 +129,15 @@ export class EarningListComponent implements OnInit {
 
   openDialog(data) {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
+      width: '100vw',
+      maxWidth: '100vw',
+      height: '100vh',
+      maxHeight: '100vh',
+      data: { data }
+    })
+  }
+  openDialogProduct(data) {
+    const dialogRef = this.dialog.open(SummaryDialogProductComponent, {
       width: '100vw',
       maxWidth: '100vw',
       height: '100vh',
