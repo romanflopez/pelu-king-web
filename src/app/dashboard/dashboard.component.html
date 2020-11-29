@@ -21,6 +21,13 @@
           [title]="'Barberos'"
         ></app-dashboard-card>
       </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['MOD']">
+        <app-dashboard-card
+          [iconSrc]="'/assets/img/icons/ingresos.png'"
+          [title]="'Ganancias diarias'"
+          [route]="'/earnings-day'"
+        ></app-dashboard-card>
+      </div>
       <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
         <app-dashboard-card
           [route]="'/product-list'"
@@ -74,16 +81,21 @@
     </div>
   </div>
 </ng-container>
-<div class="container mt-5" *ngIf="stockList?.length > 0">
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <h2 class="title-sections">Alertas Stock Productos</h2>
-      </mat-panel-title>
-      <mat-panel-description> </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div class="row w-100 mt-3">
-      <app-stock-alert class="w-100" [stockList]="stockList"></app-stock-alert>
-    </div>
-  </mat-expansion-panel>
+<div *appRole="['ADMIN']">
+  <div class="container mt-5" *ngIf="stockList?.length > 0">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h2 class="title-sections">Alertas Stock Productos</h2>
+        </mat-panel-title>
+        <mat-panel-description> </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="row w-100 mt-3">
+        <app-stock-alert
+          class="w-100"
+          [stockList]="stockList"
+        ></app-stock-alert>
+      </div>
+    </mat-expansion-panel>
+  </div>
 </div>

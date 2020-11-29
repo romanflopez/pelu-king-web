@@ -1,3 +1,4 @@
+import { EarningsDayComponent } from './earnings-day/earnings-day.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { ExpenseUpsertComponent } from './expense-list/expense-upsert/expense-upsert.component';
@@ -160,7 +161,11 @@ const routes: Routes = [
     canActivate: [AuthGuardGuard, RoleGuard],
     data: { role: 'ADMIN' }
   },
-
+  {
+    path: 'earnings-day',
+    component: EarningsDayComponent,
+    canActivate: [AuthGuardGuard, RoleGuard]
+  },
 ];
 
 @NgModule({

@@ -61,6 +61,7 @@ import { StockColorPipe } from './stock-color.pipe';
 import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
 import { PaymentMethodPipe } from './payment-method.pipe';
 import { SummaryDialogProductComponent } from './summary-dialog-product/summary-dialog-product.component';
+import { EarningsDayComponent } from './earnings-day/earnings-day.component';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import { SummaryDialogProductComponent } from './summary-dialog-product/summary-
     StockRowComponent,
     StockColorPipe,
     PaymentMethodPipe,
-    SummaryDialogProductComponent
+    SummaryDialogProductComponent,
+    EarningsDayComponent
   ],
   imports: [
     MatToolbarModule,
