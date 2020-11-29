@@ -1,8 +1,13 @@
 <div class="row" *ngIf="stock">
-  <div class="col-lg-6">
+  <div class="col-lg-6 d-flex align-items-center">
     <span class="mr-5">{{ stock.name }}</span>
   </div>
-  <div class="col-lg-6 text-right">
+  <div class="col-lg-4 text-right d-flex align-items-center">
     <span class="bold">{{ stock.stock }}</span>
+  </div>
+  <div class="col-lg-2">
+    <button mat-raised-button class="bold" (click)="route(stock._id)">
+      Editar Stock
+    </button>
   </div>
 </div>

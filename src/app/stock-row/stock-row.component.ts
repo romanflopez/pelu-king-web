@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { StockModel } from '../model/models.model';
 
@@ -8,8 +9,10 @@ import { StockModel } from '../model/models.model';
 })
 export class StockRowComponent {
   @Input() stock: StockModel
-  constructor() { }
+  constructor(private router: Router) { }
 
 
-
+  route(stockId: string) {
+    this.router.navigateByUrl(`/product/edit/${stockId}`)
+  }
 }

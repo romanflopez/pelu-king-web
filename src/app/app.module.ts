@@ -59,6 +59,7 @@ import { StockAlertComponent } from './stock-alert/stock-alert.component';
 import { StockRowComponent } from './stock-row/stock-row.component';
 import { StockColorPipe } from './stock-color.pipe';
 import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
+import { PaymentMethodPipe } from './payment-method.pipe';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
     DashboardCardComponent,
     StockAlertComponent,
     StockRowComponent,
-    StockColorPipe
+    StockColorPipe,
+    PaymentMethodPipe
   ],
   imports: [
     MatToolbarModule,

@@ -16,4 +16,9 @@ export interface CountAll {
 export interface StockModel {
     name: string
     stock: number
+    _id: string
+}
+export enum PaymentMethod {
+    CASH = 'CASH',
+    CARD = 'CARD'
 }

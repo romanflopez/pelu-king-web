@@ -127,6 +127,10 @@ export class EarningListComponent implements OnInit {
 
   openDialog(data) {
     const dialogRef = this.dialog.open(SummaryDialogComponent, {
+      width: '100vw',
+      maxWidth: '100vw',
+      height: '100vh',
+      maxHeight: '100vh',
       data: { data }
     })
 
