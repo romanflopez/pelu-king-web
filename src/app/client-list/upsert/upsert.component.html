@@ -10,6 +10,7 @@
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Nombre</mat-label>
           <input
+            trim
             name="name"
             [(ngModel)]="model.name"
             #name="ngModel"
@@ -27,6 +28,7 @@
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Apellido</mat-label>
           <input
+            trim
             name="surname"
             [(ngModel)]="model.surname"
             #surname="ngModel"
@@ -44,6 +46,7 @@
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Telefono</mat-label>
           <input
+            trim
             name="phone"
             [(ngModel)]="model.phone"
             #phone="ngModel"

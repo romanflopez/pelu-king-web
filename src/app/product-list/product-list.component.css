@@ -1,0 +1,16 @@
+.product-danger {
+  font-size: 16px;
+  color: #ff6b6b;
+}
+.product-warning {
+  font-size: 16px;
+  color: #feca57;
+}
+.product-atention {
+  font-size: 16px;
+  color: #576574;
+}
+.product-good {
+  font-size: 16px;
+  color: #1dd1a1;
+}

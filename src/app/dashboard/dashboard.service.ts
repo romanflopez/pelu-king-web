@@ -13,70 +13,23 @@ export class DashboardService {
 
   constructor(private http: HttpClient) { }
 
-  getBarberCount(): Observable<any> {
-
+  countAll(): Observable<any> {
     const headers = new HttpHeaders({
       'content-Type': 'application/json'
-
     });
-    return this.http.get(this.URL + '/count/barber', { headers }).pipe(
+    return this.http.get(this.URL + '/count/all', { headers }).pipe(
       catchError((error) => {
         throw error
       }))
   }
-  getProductCount(): Observable<any> {
-
+  getStock(): Observable<any> {
     const headers = new HttpHeaders({
       'content-Type': 'application/json'
-
     });
-    return this.http.get(this.URL + '/count/product', { headers }).pipe(
+    return this.http.get(this.URL + '/products/outOfStock', { headers }).pipe(
       catchError((error) => {
         throw error
       }))
   }
-  getServiceCount(): Observable<any> {
 
-    const headers = new HttpHeaders({
-      'content-Type': 'application/json'
-
-    });
-    return this.http.get(this.URL + '/count/service', { headers }).pipe(
-      catchError((error) => {
-        throw error
-      }))
-  }
-  getOfficeCount(): Observable<any> {
-
-    const headers = new HttpHeaders({
-      'content-Type': 'application/json'
-
-    });
-    return this.http.get(this.URL + '/count/office', { headers }).pipe(
-      catchError((error) => {
-        throw error
-      }))
-  }
-  getExpensesCount(): Observable<any> {
-
-    const headers = new HttpHeaders({
-      'content-Type': 'application/json'
-
-    });
-    return this.http.get(this.URL + '/count/expense', { headers }).pipe(
-      catchError((error) => {
-        throw error
-      }))
-  }
-  getClientCount(): Observable<any> {
-
-    const headers = new HttpHeaders({
-      'content-Type': 'application/json'
-
-    });
-    return this.http.get(this.URL + '/count/client', { headers }).pipe(
-      catchError((error) => {
-        throw error
-      }))
-  }
 }

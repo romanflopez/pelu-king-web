@@ -93,8 +93,8 @@
   <ng-container *ngIf="paymentList && paymentList.haircuts">
     <div class="card mb-2 mt-3" *ngFor="let cut of paymentList.haircuts">
       <div class="row p8">
-        <div class="col-lg-3 col-md-3 col-sm-3">{{ cut.clientId }}</div>
-        <div class="col-lg-3 col-md-3 col-sm-3">{{ cut.officeId }}</div>
+        <div class="col-lg-3 col-md-3 col-sm-3">{{ cut.clientName }}</div>
+        <div class="col-lg-3 col-md-3 col-sm-3">{{ cut.officeName }}</div>
         <div class="col-lg-2 col-md-2 col-sm-2">
           {{ cut.date | date: "dd/MM/yyyy" }}
         </div>

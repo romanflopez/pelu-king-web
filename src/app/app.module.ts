@@ -53,6 +53,15 @@ import { EarningListComponent } from './earning-list/earning-list.component';
 import { MyLoaderComponent } from './components/my-loader/my-loader.component';
 import { LoaderService } from './services/loader.service';
 import { PaymentsComponent } from './payments/payments.component';
+import { SummaryDialogComponent } from './summary-dialog/summary-dialog.component';
+import { DashboardCardComponent } from './shared-components/dashboard-card/dashboard-card.component';
+import { StockAlertComponent } from './stock-alert/stock-alert.component';
+import { StockRowComponent } from './stock-row/stock-row.component';
+import { StockColorPipe } from './stock-color.pipe';
+import { NgxTrimDirectiveModule } from 'ngx-trim-directive';
+import { PaymentMethodPipe } from './payment-method.pipe';
+import { SummaryDialogProductComponent } from './summary-dialog-product/summary-dialog-product.component';
+import { EarningsDayComponent } from './earnings-day/earnings-day.component';
 
 
 @NgModule({
@@ -81,7 +90,15 @@ import { PaymentsComponent } from './payments/payments.component';
     ExpenseUpsertComponent,
     EarningListComponent,
     MyLoaderComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    SummaryDialogComponent,
+    DashboardCardComponent,
+    StockAlertComponent,
+    StockRowComponent,
+    StockColorPipe,
+    PaymentMethodPipe,
+    SummaryDialogProductComponent,
+    EarningsDayComponent
   ],
   imports: [
     MatToolbarModule,
@@ -111,10 +128,11 @@ import { PaymentsComponent } from './payments/payments.component';
     ReactiveFormsModule,
     MatRadioModule,
     MatIconModule,
+    NgxTrimDirectiveModule,
     NgxDaterangepickerMd.forRoot()
 
   ],
-  entryComponents: [DeleteDialogComponent],
+  entryComponents: [DeleteDialogComponent, SummaryDialogComponent, SummaryDialogProductComponent],
   providers: [LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true }],
   bootstrap: [AppComponent]
