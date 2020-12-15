@@ -14,4 +14,9 @@ export class AuthServiceService {
     this.userLoggedStatus.userLoggedOutSource.next()
   }
 
+
+  getOfficeName(): string {
+    let current = JSON.parse(localStorage.getItem('user_data'))
+    return current.user
+  }
 }

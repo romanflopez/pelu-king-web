@@ -129,8 +129,7 @@ const routes: Routes = [
   {
     path: 'expenses-list',
     component: ExpenseListComponent,
-    canActivate: [AuthGuardGuard, RoleGuard],
-    data: { role: 'ADMIN' }
+    canActivate: [AuthGuardGuard, RoleGuard]
   },
   {
     path: 'office/add',
