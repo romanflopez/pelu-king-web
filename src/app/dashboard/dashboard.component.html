@@ -78,6 +78,13 @@
           [title]="'Pagos'"
         ></app-dashboard-card>
       </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'/delete-payments'"
+          [iconSrc]="'/assets/img/icons/debit-card.png'"
+          [title]="'Borrar Pagos'"
+        ></app-dashboard-card>
+      </div>
     </div>
   </div>
 </ng-container>
