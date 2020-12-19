@@ -73,7 +73,6 @@ export class EarningListComponent implements OnInit {
 
   getTotalService() {
     this.earningService.getTotalServices().subscribe((x: TotalService) => {
-      console.log(x)
       this.setTotalService(x)
     })
   }
@@ -114,7 +113,6 @@ export class EarningListComponent implements OnInit {
     this.totalService.servicesCount = totalService.servicesCount
     this.totalService.servicesEarnings = totalService.servicesEarnings
     this.totalService.services = totalService.services
-    console.log(this.totalService)
   }
 
   getTotals() {

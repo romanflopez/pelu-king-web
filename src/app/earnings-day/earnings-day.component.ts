@@ -1,3 +1,4 @@
+import { EarningsDayService } from './earnings-day.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EarningsDayComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: EarningsDayService) { }
 
   ngOnInit(): void {
+    this.service.get().subscribe(x => {
+      console.log(x)
+    })
   }
 
 }

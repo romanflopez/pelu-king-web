@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="d-flex mt-4 mb-4">
+    <div class="col-lg-3">
+      <div class="d-flex">
+        <app-back class="d-flex align-items-center"></app-back>
+        <h1 class="title-sections ml-2">Lista de Pagos</h1>
+      </div>
+    </div>
+  </div>
+  <mat-accordion class="example-headers-align" multi="false">
+    <mat-expansion-panel class="mb-2" *ngFor="let p of paymentList.payments">
+      <mat-expansion-panel-header>
+        <div class="row w-100">
+          <div class="col-lg-2">
+            <div>{{ p.barberName }}</div>
+          </div>
+          <div class="col-lg-3">
+            <div>{{ p.clientName }}</div>
+          </div>
+          <div class="col-lg-2">
+            <div>{{ p.officeName }}</div>
+          </div>
+          <div class="col-lg-2">
+            <div class="bold">{{ p.amount }}</div>
+          </div>
+          <div class="col-lg-2">
+            <div>{{ p.paymentMethod | paymentMethod }}</div>
+          </div>
+          <div class="col-lg-1">
+            <div (click)="openDialog(p._id, p.clientName)">
+              <span class="material-icons pointer"> delete </span>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel-header>
+      <div class="mt-3">
+        <div class="row w-100" *ngFor="let s of p.services">
+          <div class="col-lg-6">{{ s.name }}</div>
+          <div class="col-lg-6 bold">{{ s.price }}</div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <div class="row w-100" *ngFor="let s of p.products">
+          <div class="col-lg-6">{{ s.name }}</div>
+          <div class="col-lg-6 bold">{{ s.price }}</div>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,4 +1,3 @@
-import { AuthServiceService } from './../auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -8,18 +7,29 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class EarningsDayService {
+export class DeletePaymentsService {
   private URL = environment.apiUrl
 
-  constructor(private http: HttpClient, private auth: AuthServiceService) { }
+  constructor(private http: HttpClient) { }
 
-  public get(): Observable<any> {
-    const currentUSer = this.auth.getOfficeName()
+
+
+  deletePayment(id: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'content-Type': 'application/json'
+    });
+    return this.http.delete(this.URL + `/delete/payment/${id}`, { headers }).pipe(
+      catchError((error) => {
+        throw error
+      }))
+  }
+  getPayments(): Observable<any> {
+
     const headers = new HttpHeaders({
       'content-Type': 'application/json'
 
     });
-    return this.http.get(this.URL + `/earnings/today/${currentUSer}`, { headers }).pipe(
+    return this.http.get(this.URL + '/payments/today', { headers }).pipe(
       catchError((error) => {
         throw error
       }))

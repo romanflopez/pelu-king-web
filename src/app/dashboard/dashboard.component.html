@@ -54,7 +54,7 @@
           [title]="'Sucursales'"
         ></app-dashboard-card>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer">
         <app-dashboard-card
           [route]="'/expenses-list'"
           [iconSrc]="'/assets/img/icons/presupuesto.png'"
@@ -76,6 +76,13 @@
           [route]="'/payments'"
           [iconSrc]="'/assets/img/icons/pagos.png'"
           [title]="'Pagos'"
+        ></app-dashboard-card>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'/delete-payments'"
+          [iconSrc]="'/assets/img/icons/debit-card.png'"
+          [title]="'Borrar Pagos'"
         ></app-dashboard-card>
       </div>
     </div>

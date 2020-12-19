@@ -1,3 +1,4 @@
+import { DeletePaymentsComponent } from './delete-payments/delete-payments.component';
 import { EarningsDayComponent } from './earnings-day/earnings-day.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
@@ -129,8 +130,7 @@ const routes: Routes = [
   {
     path: 'expenses-list',
     component: ExpenseListComponent,
-    canActivate: [AuthGuardGuard, RoleGuard],
-    data: { role: 'ADMIN' }
+    canActivate: [AuthGuardGuard, RoleGuard]
   },
   {
     path: 'office/add',
@@ -158,6 +158,12 @@ const routes: Routes = [
   {
     path: 'payments',
     component: PaymentsComponent,
+    canActivate: [AuthGuardGuard, RoleGuard],
+    data: { role: 'ADMIN' }
+  },
+  {
+    path: 'delete-payments',
+    component: DeletePaymentsComponent,
     canActivate: [AuthGuardGuard, RoleGuard],
     data: { role: 'ADMIN' }
   },
