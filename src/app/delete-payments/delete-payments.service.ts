@@ -29,7 +29,7 @@ export class DeletePaymentsService {
       'content-Type': 'application/json'
 
     });
-    return this.http.get(this.URL + '/payments/today', { headers }).pipe(
+    return this.http.get(this.URL + '/payments/todays', { headers }).pipe(
       catchError((error) => {
         throw error
       }))
