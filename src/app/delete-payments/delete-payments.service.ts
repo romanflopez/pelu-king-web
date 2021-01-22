@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -24,12 +25,13 @@ export class DeletePaymentsService {
       }))
   }
   getPayments(): Observable<any> {
-
+    const startDate = moment().startOf('day').format('YYYY-MM-DD');
+    const endDate = moment().add(1, 'day').startOf('day').format('YYYY-MM-DD');
     const headers = new HttpHeaders({
       'content-Type': 'application/json'
 
     });
-    return this.http.get(this.URL + '/payments/todays', { headers }).pipe(
+    return this.http.get(this.URL + `/payments/todays?startDate=${startDate}&endDate=${endDate}`, { headers }).pipe(
       catchError((error) => {
         throw error
       }))
