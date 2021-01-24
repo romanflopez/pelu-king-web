@@ -16,14 +16,6 @@ mat-form-field {
   margin: auto;
 }
 
-.input-store {
-  padding: 15px 6px;
-  border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.04);
-  width: 100% !important;
-  display: block !important;
-  margin: auto;
-}
 .primary {
   width: 80%;
 }

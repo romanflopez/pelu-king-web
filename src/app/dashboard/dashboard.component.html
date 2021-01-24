@@ -86,6 +86,15 @@
         ></app-dashboard-card>
       </div>
     </div>
+    <div class="row mt-5">
+      <div class="col-lg-4 col-md-4 col-sm-12 pointer" *appRole="['ADMIN']">
+        <app-dashboard-card
+          [route]="'/active-users'"
+          [iconSrc]="'/assets/img/icons/active-users.svg'"
+          [title]="'Usuarios Activos'"
+        ></app-dashboard-card>
+      </div>
+    </div>
   </div>
 </ng-container>
 <div *appRole="['ADMIN']">

@@ -99,3 +99,22 @@ mat-paginator {
 .mat-expansion-panel-content {
   background: #dfe6e961 !important;
 }
+
+.input-store {
+  padding: 15px 6px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.04);
+  width: 100% !important;
+  display: block !important;
+  margin: auto;
+}
+
+.expenses-total {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 10px;
+}
+.number {
+  font-size: 20px;
+  font-weight: bold;
+}

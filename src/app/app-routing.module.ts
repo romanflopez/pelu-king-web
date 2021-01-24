@@ -1,3 +1,4 @@
+import { ActiveUsersComponent } from './active-users/active-users.component';
 import { DeletePaymentsComponent } from './delete-payments/delete-payments.component';
 import { EarningsDayComponent } from './earnings-day/earnings-day.component';
 import { PaymentsComponent } from './payments/payments.component';
@@ -164,6 +165,12 @@ const routes: Routes = [
   {
     path: 'delete-payments',
     component: DeletePaymentsComponent,
+    canActivate: [AuthGuardGuard, RoleGuard],
+    data: { role: 'ADMIN' }
+  },
+  {
+    path: 'active-users',
+    component: ActiveUsersComponent,
     canActivate: [AuthGuardGuard, RoleGuard],
     data: { role: 'ADMIN' }
   },

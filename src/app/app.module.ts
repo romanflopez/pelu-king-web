@@ -63,6 +63,7 @@ import { PaymentMethodPipe } from './payment-method.pipe';
 import { SummaryDialogProductComponent } from './summary-dialog-product/summary-dialog-product.component';
 import { EarningsDayComponent } from './earnings-day/earnings-day.component';
 import { DeletePaymentsComponent } from './delete-payments/delete-payments.component';
+import { ActiveUsersComponent } from './active-users/active-users.component';
 
 
 @NgModule({
@@ -100,7 +101,8 @@ import { DeletePaymentsComponent } from './delete-payments/delete-payments.compo
     PaymentMethodPipe,
     SummaryDialogProductComponent,
     EarningsDayComponent,
-    DeletePaymentsComponent
+    DeletePaymentsComponent,
+    ActiveUsersComponent
   ],
   imports: [
     MatToolbarModule,
