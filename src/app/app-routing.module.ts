@@ -131,7 +131,7 @@ const routes: Routes = [
   {
     path: 'expenses-list',
     component: ExpenseListComponent,
-    canActivate: [AuthGuardGuard, RoleGuard]
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'office/add',
