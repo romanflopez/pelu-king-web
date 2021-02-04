@@ -125,8 +125,7 @@ const routes: Routes = [
   {
     path: 'expense/add',
     component: ExpenseUpsertComponent,
-    canActivate: [AuthGuardGuard, RoleGuard],
-    data: { role: 'ADMIN' }
+    canActivate: [AuthGuardGuard, RoleGuard]
   },
   {
     path: 'expenses-list',
