@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button'
 import { MatCheckboxModule } from '@angular/material/checkbox'
-import { MatNativeDateModule } from '@angular/material/core'
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatExpansionModule } from '@angular/material/expansion'
@@ -138,7 +138,8 @@ import { ActiveUsersComponent } from './active-users/active-users.component';
   ],
   entryComponents: [DeleteDialogComponent, SummaryDialogComponent, SummaryDialogProductComponent],
   providers: [LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true },
+    { provide: MAT_DATE_LOCALE, useValue: 'es-AR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
