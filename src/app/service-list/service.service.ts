@@ -60,7 +60,7 @@ export class ServiceService {
     const headers = new HttpHeaders({
       'content-Type': 'application/json'
     });
-    return this.http.post(this.URL + `/edit/service/${id}`, model, { headers }).pipe(
+    return this.http.put(this.URL + `/edit/service/${id}`, model, { headers }).pipe(
       catchError((error) => {
         throw error
       }))

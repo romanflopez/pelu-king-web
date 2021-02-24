@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
 })
 export class ClientUpsertComponent implements OnInit {
   currentRol = JSON.parse(localStorage.getItem('user_data')).role[0]
-  model: any = { name: '', surname: '', phone: '' }
+  model: any = { name: '', surname: '', phone: '', email: '', dateOfBirth: '' }
   id: string
   constructor(private clientService: ClientListService, private arouter: ActivatedRoute, public location: Location,
     private router: Router, private snackbarService: SnackbarService) { }
@@ -22,6 +22,8 @@ export class ClientUpsertComponent implements OnInit {
         this.model.name = x.name
         this.model.surname = x.surname
         this.model.phone = x.phone
+        this.model.email = x.email
+        this.model.dateOfBirth = x.dateOfBirth
       })
     }
 
